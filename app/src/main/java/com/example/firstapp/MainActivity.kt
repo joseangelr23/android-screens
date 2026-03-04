@@ -37,7 +37,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             FirstappTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    LoginScreen(modifier = Modifier.padding(innerPadding))
+                   MainMenu(modifier = Modifier.padding(innerPadding))
                 }
             }
         }
@@ -160,13 +160,6 @@ fun RegisterScreen(modifier: Modifier = Modifier) {
                 fontWeight = FontWeight.Bold
             )
 
-            Spacer(modifier = Modifier.height(8.dp))
-
-            Text(
-                text = "Register to start managing your tasks",
-                fontSize = 16.sp,
-                textAlign = TextAlign.Center
-            )
 
             Spacer(modifier = Modifier.height(32.dp))
 
@@ -273,17 +266,9 @@ fun LoginScreen(modifier: Modifier = Modifier) {
             Spacer(modifier = Modifier.height(24.dp))
 
             Text(
-                text = "Welcome Back",
+                text = "Login to Continue",
                 fontSize = 28.sp,
                 fontWeight = FontWeight.Bold
-            )
-
-            Spacer(modifier = Modifier.height(8.dp))
-
-            Text(
-                text = "Login to continue",
-                fontSize = 16.sp,
-                textAlign = TextAlign.Center
             )
 
             Spacer(modifier = Modifier.height(32.dp))
