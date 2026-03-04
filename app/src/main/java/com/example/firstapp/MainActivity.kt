@@ -37,7 +37,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             FirstappTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                   MainMenu(modifier = Modifier.padding(innerPadding))
+                   RegisterScreen(modifier = Modifier.padding(innerPadding))
                 }
             }
         }
@@ -120,6 +120,202 @@ fun MainMenu(modifier: Modifier = Modifier) {
                 Text(
                     text = "Sign Up",
                     color = Color(0xFF343571)
+                )
+            }
+        }
+    }
+}
+
+@Composable
+fun RegisterScreen(modifier: Modifier = Modifier) {
+
+    Box(
+        modifier = modifier
+            .fillMaxSize()
+            .background(Color.White)
+    ) {
+
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(horizontal = 24.dp),
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+
+            Spacer(modifier = Modifier.height(40.dp))
+
+            Image(
+                painter = painterResource(id = R.drawable.register),
+                contentDescription = null,
+                modifier = Modifier
+                    .height(220.dp)
+                    .fillMaxWidth()
+            )
+
+            Spacer(modifier = Modifier.height(24.dp))
+
+            Text(
+                text = "Create Account",
+                fontSize = 28.sp,
+                fontWeight = FontWeight.Bold
+            )
+
+
+            Spacer(modifier = Modifier.height(32.dp))
+
+            OutlinedTextField(
+                value = "",
+                onValueChange = {},
+                label = { Text("Nombre") },
+                modifier = Modifier.fillMaxWidth(),
+                shape = RoundedCornerShape(20.dp)
+            )
+
+            Spacer(modifier = Modifier.height(12.dp))
+
+            OutlinedTextField(
+                value = "",
+                onValueChange = {},
+                label = { Text("Correo") },
+                modifier = Modifier.fillMaxWidth(),
+                shape = RoundedCornerShape(20.dp)
+            )
+
+            Spacer(modifier = Modifier.height(12.dp))
+
+            OutlinedTextField(
+                value = "",
+                onValueChange = {},
+                label = { Text("Contraseña") },
+                modifier = Modifier.fillMaxWidth(),
+                visualTransformation = PasswordVisualTransformation(),
+                shape = RoundedCornerShape(20.dp)
+            )
+
+            Spacer(modifier = Modifier.height(12.dp))
+
+            OutlinedTextField(
+                value = "",
+                onValueChange = {},
+                label = { Text("Confirmar Contraseña") },
+                modifier = Modifier.fillMaxWidth(),
+                visualTransformation = PasswordVisualTransformation(),
+                shape = RoundedCornerShape(20.dp)
+            )
+
+            Spacer(modifier = Modifier.height(12.dp))
+
+            OutlinedTextField(
+                value = "",
+                onValueChange = {},
+                label = { Text("Teléfono") },
+                modifier = Modifier.fillMaxWidth(),
+                shape = RoundedCornerShape(20.dp)
+            )
+
+            Spacer(modifier = Modifier.height(28.dp))
+
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(55.dp)
+                    .background(
+                        Color(0xFF4644AA),
+                        shape = RoundedCornerShape(30.dp)
+                    ),
+                contentAlignment = Alignment.Center
+            ) {
+                Text(
+                    text = "Register",
+                    color = Color.White,
+                    fontWeight = FontWeight.Bold
+                )
+            }
+        }
+    }
+}
+
+@Composable
+fun LoginScreen(modifier: Modifier = Modifier) {
+
+    Box(
+        modifier = modifier
+            .fillMaxSize()
+            .background(Color.White)
+    ) {
+
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(horizontal = 24.dp),
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+
+            Spacer(modifier = Modifier.height(40.dp))
+
+            Image(
+                painter = painterResource(id = R.drawable.login),
+                contentDescription = null,
+                modifier = Modifier
+                    .height(220.dp)
+                    .fillMaxWidth()
+            )
+
+            Spacer(modifier = Modifier.height(24.dp))
+
+            Text(
+                text = "Login to Continue",
+                fontSize = 28.sp,
+                fontWeight = FontWeight.Bold
+            )
+
+            Spacer(modifier = Modifier.height(32.dp))
+
+            OutlinedTextField(
+                value = "",
+                onValueChange = {},
+                label = { Text("Nombre") },
+                modifier = Modifier.fillMaxWidth(),
+                shape = RoundedCornerShape(20.dp)
+            )
+
+            Spacer(modifier = Modifier.height(12.dp))
+
+            OutlinedTextField(
+                value = "",
+                onValueChange = {},
+                label = { Text("Correo") },
+                modifier = Modifier.fillMaxWidth(),
+                shape = RoundedCornerShape(20.dp)
+            )
+
+            Spacer(modifier = Modifier.height(12.dp))
+
+            OutlinedTextField(
+                value = "",
+                onValueChange = {},
+                label = { Text("Contraseña") },
+                modifier = Modifier.fillMaxWidth(),
+                visualTransformation = PasswordVisualTransformation(),
+                shape = RoundedCornerShape(20.dp)
+            )
+
+            Spacer(modifier = Modifier.height(28.dp))
+
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(55.dp)
+                    .background(
+                        Color(0xFF4644AA),
+                        shape = RoundedCornerShape(30.dp)
+                    ),
+                contentAlignment = Alignment.Center
+            ) {
+                Text(
+                    text = "Login",
+                    color = Color.White,
+                    fontWeight = FontWeight.Bold
                 )
             }
         }

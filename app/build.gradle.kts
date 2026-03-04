@@ -50,11 +50,8 @@ dependencies {
     implementation(libs.androidx.compose.material3)
     implementation(libs.androidx.compose.foundation)
     implementation(libs.androidx.compose.foundation.layout)
-<<<<<<< HEAD
     implementation(libs.androidx.compose.ui.text)
     implementation(libs.androidx.material3)
-=======
->>>>>>> f2f6214f1b83b8ac5c95228f74542beeb0dfa5e6
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
