@@ -1,0 +1,1 @@
+Visual-only login design in a mobile app
