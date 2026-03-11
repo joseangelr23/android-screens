@@ -41,15 +41,32 @@ fun RegisterScreen(navController: NavController, modifier: Modifier = Modifier) 
 
     var name by remember { mutableStateOf("") }
     var mail by remember { mutableStateOf("") }
-    var password by remember { mutableStateOf("") }
-    var confirmPassword by remember { mutableStateOf("") }
+    var pass by remember { mutableStateOf("") }
+    var confirmPass by remember { mutableStateOf("") }
     var phone by remember { mutableStateOf("") }
+    var nameError by remember { mutableStateOf(false) }
+    var phoneError by remember { mutableStateOf(false) }
+    var passwordError by remember { mutableStateOf(false) }
     var mailError by remember { mutableStateOf(false) }
 
 
     fun isValidEmail(email: String): Boolean {
         return android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()
     }
+
+    fun isValidName(name: String): Boolean {
+        return name.all { it.isLetter() || it.isWhitespace() }
+    }
+
+    fun isValidPhone(phone: String): Boolean {
+        return phone.length == 10 && phone.all { it.isDigit() }
+    }
+
+    fun passwordsMatch(pass: String, confirmPass: String): Boolean {
+        return pass == confirmPass && pass.isNotEmpty()
+    }
+
+    val formValid = nameError && mailError && phoneError && passwordError
 
     Box(
         modifier = modifier
@@ -87,9 +104,12 @@ fun RegisterScreen(navController: NavController, modifier: Modifier = Modifier) 
 
             TextField(
                 value = name,
-                onValueChange = {name = it},
+                onValueChange = {
+                    name = it
+                    nameError = isValidName(it) },
                 label = { Text("Nombre") },
                 modifier = Modifier.fillMaxWidth(),
+                isError = !nameError,
                 shape = RoundedCornerShape(20.dp),
                 keyboardOptions = KeyboardOptions(
                     keyboardType = KeyboardType.Text
@@ -106,7 +126,7 @@ fun RegisterScreen(navController: NavController, modifier: Modifier = Modifier) 
                     mailError = isValidEmail(it) },
                 label = { Text("Correo") },
                 modifier = Modifier.fillMaxWidth(),
-                isError = mailError,
+                isError = !mailError,
                 shape = RoundedCornerShape(20.dp),
                 keyboardOptions = KeyboardOptions(
                     keyboardType = KeyboardType.Email
@@ -116,8 +136,8 @@ fun RegisterScreen(navController: NavController, modifier: Modifier = Modifier) 
             Spacer(modifier = Modifier.height(12.dp))
 
             TextField(
-                value = password,
-                onValueChange = {password = it},
+                value = pass,
+                onValueChange = {pass = it},
                 label = { Text("Contraseña") },
                 modifier = Modifier.fillMaxWidth(),
                 visualTransformation = PasswordVisualTransformation(),
@@ -130,10 +150,13 @@ fun RegisterScreen(navController: NavController, modifier: Modifier = Modifier) 
             Spacer(modifier = Modifier.height(12.dp))
 
             TextField(
-                value = confirmPassword,
-                onValueChange = {confirmPassword = it},
+                value = confirmPass,
+                onValueChange = {
+                    confirmPass = it
+                    passwordError = passwordsMatch(pass, it) },
                 label = { Text("Confirmar Contraseña") },
                 modifier = Modifier.fillMaxWidth(),
+                isError = !passwordError,
                 visualTransformation = PasswordVisualTransformation(),
                 shape = RoundedCornerShape(20.dp),
                 keyboardOptions = KeyboardOptions(
@@ -145,9 +168,12 @@ fun RegisterScreen(navController: NavController, modifier: Modifier = Modifier) 
 
             TextField(
                 value = phone,
-                onValueChange = {phone = it},
+                onValueChange = {
+                    phone = it
+                    phoneError = isValidPhone(it) },
                 label = { Text("Teléfono") },
                 modifier = Modifier.fillMaxWidth(),
+                isError = !phoneError,
                 shape = RoundedCornerShape(20.dp),
                 keyboardOptions = KeyboardOptions(
                     keyboardType = KeyboardType.Number
@@ -185,6 +211,7 @@ fun RegisterScreen(navController: NavController, modifier: Modifier = Modifier) 
                     onClick = {
                         navController.navigate("main")
                     },
+                    enabled = formValid,
                     modifier = Modifier
                         .weight(1f)
                         .height(60.dp),
