@@ -51,7 +51,8 @@ fun MainScreen(navController: NavController, modifier: Modifier = Modifier) {
             onClick = { },
             modifier = Modifier
                 .fillMaxWidth()
-                .height(55.dp),
+                .height(55.dp)
+                .padding(top = 16.dp),
             shape = RoundedCornerShape(25.dp),
             colors = ButtonDefaults.buttonColors(
                 containerColor = Color(0xFF4644AA)
@@ -74,7 +75,7 @@ fun MainScreen(navController: NavController, modifier: Modifier = Modifier) {
             Text("Option 2")
         }
 
-        Spacer(modifier = Modifier.height(28.dp))
+        Spacer(modifier = Modifier.height(200.dp))
 
         Button(
             onClick = {
@@ -82,7 +83,7 @@ fun MainScreen(navController: NavController, modifier: Modifier = Modifier) {
             },
             modifier = Modifier
                 .fillMaxWidth()
-                .height(55.dp),
+                .height(100.dp),
             shape = RoundedCornerShape(30.dp),
             colors = ButtonDefaults.buttonColors(
                 containerColor = Color.Gray
@@ -91,13 +92,14 @@ fun MainScreen(navController: NavController, modifier: Modifier = Modifier) {
             Text(
                 text = "Welcome Menu",
                 color = Color.White,
-                fontWeight = FontWeight.Bold
+                fontWeight = FontWeight.Bold,
+                fontSize = 30.sp
             )
         }
     }
 }
 
-@Preview(showBackground = true)
+@Preview
 @Composable
 fun MainScreenPreview() {
     MainScreen(navController = rememberNavController())

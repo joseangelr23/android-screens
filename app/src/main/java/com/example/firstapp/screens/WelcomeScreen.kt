@@ -86,7 +86,8 @@ fun WelcomeScreen(navController: NavController, modifier: Modifier = Modifier) {
             ) {
                 Text(
                     text = "Login",
-                    color = Color.White
+                    color = Color.White,
+                    fontSize = 20.sp
                 )
             }
 
@@ -111,7 +112,8 @@ fun WelcomeScreen(navController: NavController, modifier: Modifier = Modifier) {
             ) {
                 Text(
                     text = "Sign Up",
-                    color = Color(0xFF343571)
+                    color = Color(0xFF343571),
+                    fontSize = 20.sp
                 )
             }
 

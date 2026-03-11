@@ -138,7 +138,8 @@ fun RegisterScreen(navController: NavController, modifier: Modifier = Modifier) 
                 Text(
                     text = "Register",
                     color = Color.White,
-                    fontWeight = FontWeight.Bold
+                    fontWeight = FontWeight.Bold,
+                    fontSize = 20.sp
                 )
             }
 
@@ -159,7 +160,8 @@ fun RegisterScreen(navController: NavController, modifier: Modifier = Modifier) 
                 Text(
                     text = "Regresar",
                     color = Color.White,
-                    fontWeight = FontWeight.Bold
+                    fontWeight = FontWeight.Bold,
+                    fontSize = 20.sp
                 )
             }
 

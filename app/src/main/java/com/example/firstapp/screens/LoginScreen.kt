@@ -115,7 +115,8 @@ fun LoginScreen(navController: NavController, modifier: Modifier = Modifier) {
                 Text(
                     text = "Login",
                     color = Color.White,
-                    fontWeight = FontWeight.Bold
+                    fontWeight = FontWeight.Bold,
+                    fontSize = 20.sp
                 )
             }
 
@@ -136,7 +137,8 @@ fun LoginScreen(navController: NavController, modifier: Modifier = Modifier) {
                 Text(
                     text = "Regresar",
                     color = Color.White,
-                    fontWeight = FontWeight.Bold
+                    fontWeight = FontWeight.Bold,
+                    fontSize = 20.sp
                 )
             }
 
