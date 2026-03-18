@@ -44,6 +44,7 @@ fun RegisterScreen(navController: NavController, modifier: Modifier = Modifier) 
     var pass by remember { mutableStateOf("") }
     var confirmPass by remember { mutableStateOf("") }
     var phone by remember { mutableStateOf("") }
+
     var nameError by remember { mutableStateOf(false) }
     var phoneError by remember { mutableStateOf(false) }
     var passwordError by remember { mutableStateOf(false) }
